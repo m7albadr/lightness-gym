@@ -118,7 +118,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/96599037473"
+                href="https://wa.me/96599037473?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Lightness%20Gym%20memberships"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-text-muted transition-all hover:border-primary/30 hover:text-green-400"

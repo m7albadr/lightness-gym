@@ -46,7 +46,15 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const closeMobile = () => setMobileOpen(false);
+  const closeMobile = (href?: string) => {
+    setMobileOpen(false);
+    if (href) {
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
@@ -131,7 +139,7 @@ export default function Navbar() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/96599037473"
+                href="https://wa.me/96599037473?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Lightness%20Gym%20memberships"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-text-muted transition-colors hover:text-green-400"
@@ -213,7 +221,7 @@ export default function Navbar() {
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  onClick={closeMobile}
+                  onClick={(e) => { e.preventDefault(); closeMobile(link.href); }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 + i * 0.05 }}
@@ -224,7 +232,7 @@ export default function Navbar() {
               ))}
               <motion.a
                 href="#contact"
-                onClick={closeMobile}
+                onClick={(e) => { e.preventDefault(); closeMobile("#contact"); }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -251,7 +259,7 @@ export default function Navbar() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/96599037473"
+                href="https://wa.me/96599037473?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Lightness%20Gym%20memberships"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-text-muted active:text-green-400"

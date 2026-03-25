@@ -8,16 +8,21 @@ import Services from "@/components/Services";
 import Classes from "@/components/Classes";
 import Pricing from "@/components/Pricing";
 import Gallery from "@/components/Gallery";
+import Hours from "@/components/Hours";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BackToTop from "@/components/BackToTop";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
     <ThemeProvider>
       <LangProvider>
         <main>
+          <LoadingScreen />
           <Navbar />
           <Hero />
           <About />
@@ -25,6 +30,9 @@ export default function Home() {
           <Classes />
           <Pricing />
           <Gallery />
+          <Hours />
+          <Testimonials />
+          <FAQ />
           <Contact />
           <Footer />
           <WhatsAppButton />
