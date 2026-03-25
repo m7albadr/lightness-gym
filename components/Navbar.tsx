@@ -96,10 +96,10 @@ export default function Navbar() {
               {/* Lang toggle */}
               <button
                 onClick={toggleLang}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-xs font-bold text-text-muted transition-all hover:border-primary/30 hover:text-primary"
+                className="flex h-9 items-center justify-center rounded-lg border border-white/10 px-2.5 text-xs font-bold text-text-muted transition-all hover:border-primary/30 hover:text-primary"
                 aria-label="Toggle language"
               >
-                {isAr ? "EN" : "AR"}
+                {isAr ? "English" : "عربي"}
               </button>
 
               {/* Theme toggle */}
@@ -153,10 +153,10 @@ export default function Navbar() {
             <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={toggleLang}
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-xs font-bold text-text-muted"
+                className="flex h-9 items-center justify-center rounded-lg border border-white/10 px-2.5 text-xs font-bold text-text-muted"
                 aria-label="Toggle language"
               >
-                {isAr ? "EN" : "AR"}
+                {isAr ? "English" : "عربي"}
               </button>
               <button
                 onClick={toggleTheme}
