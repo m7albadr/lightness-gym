@@ -9,7 +9,6 @@ import Classes from "@/components/Classes";
 import Pricing from "@/components/Pricing";
 import Gallery from "@/components/Gallery";
 import Hours from "@/components/Hours";
-import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -31,7 +30,6 @@ export default function Home() {
           <Pricing />
           <Gallery />
           <Hours />
-          <Testimonials />
           <FAQ />
           <Contact />
           <Footer />
