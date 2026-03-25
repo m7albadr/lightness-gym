@@ -129,11 +129,9 @@ export default function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  whileHover={{ x: 6 }}
-
-                  className="group flex items-start gap-3 rounded-xl border border-white/5 bg-dark-card p-4 transition-all active:border-primary/30 mobile-card-breathe sm:gap-4 sm:p-5 sm:hover:border-primary/30 sm:hover:shadow-md sm:hover:shadow-primary/5"
+                  className="group flex items-start gap-3 rounded-xl border border-white/5 bg-dark-card p-4 transition-all duration-300 sm:gap-4 sm:p-5 sm:hover:border-primary/30"
                 >
-                  <div className="mobile-icon-float flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-10 sm:w-10">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-10 sm:w-10">
                     {item.icon}
                   </div>
                   <div className="min-w-0">
@@ -159,9 +157,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.08 }}
-                  whileHover={{ y: -3, scale: 1.1 }}
-
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-dark-card text-text-muted transition-all active:border-primary/30 active:text-primary mobile-card-breathe sm:hover:border-primary/30 sm:hover:text-primary"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-dark-card text-text-muted transition-all duration-300 sm:hover:border-primary/30 sm:hover:text-primary"
                   aria-label={link.name}
                 >
                   {link.icon}

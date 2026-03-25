@@ -75,9 +75,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              whileHover={{ y: -6, scale: 1.03, rotateX: 2, rotateY: -2 }}
-
-              className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br ${gradients[i]} p-6 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10 mobile-card-breathe mobile-shadow-pulse sm:p-10`}
+              className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br ${gradients[i]} p-6 transition-all duration-300 sm:p-10 sm:hover:border-primary/20 sm:hover:-translate-y-1`}
             >
               <div className={`absolute -right-8 -top-8 h-24 w-24 rounded-full ${accents[i]} blur-2xl transition-transform duration-500 group-hover:scale-150`} />
               <div
@@ -88,7 +86,7 @@ export default function Gallery() {
                 }}
               />
               <div className="relative flex flex-col items-center text-center">
-                <div className="mobile-icon-float flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-primary backdrop-blur-sm sm:h-16 sm:w-16">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-primary sm:h-16 sm:w-16">
                   {featureIcons[i]}
                 </div>
                 <h3 className="mt-4 font-heading text-sm font-semibold tracking-wider text-white sm:mt-6 sm:text-base">
