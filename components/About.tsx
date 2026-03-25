@@ -105,24 +105,24 @@ function GymVisual({ est }: { est: string }) {
         </motion.svg>
       </div>
 
-      {/* Animated pulse ring behind the dumbbell */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Animated pulse ring behind the dumbbell — desktop only */}
+      <div className="absolute inset-0 hidden items-center justify-center sm:flex">
         <motion.div
-          className="h-40 w-40 rounded-full border border-primary/10 sm:h-52 sm:w-52"
+          className="h-52 w-52 rounded-full border border-primary/10"
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute h-56 w-56 rounded-full border border-primary/5 sm:h-72 sm:w-72"
+          className="absolute h-72 w-72 rounded-full border border-primary/5"
           animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.25, 0.1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         />
       </div>
 
-      {/* Floating fitness icons */}
+      {/* Floating fitness icons — desktop only */}
       {/* Heartbeat icon top-left */}
       <motion.div
-        className="absolute left-[12%] top-[15%]"
+        className="absolute left-[12%] top-[15%] hidden sm:block"
         animate={{ y: [0, -8, 0], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 3, repeat: Infinity, delay: 0 }}
       >
@@ -133,7 +133,7 @@ function GymVisual({ est }: { est: string }) {
 
       {/* Lightning bolt top-right */}
       <motion.div
-        className="absolute right-[12%] top-[20%]"
+        className="absolute right-[12%] top-[20%] hidden sm:block"
         animate={{ y: [0, -10, 0], opacity: [0.25, 0.55, 0.25] }}
         transition={{ duration: 3.5, repeat: Infinity, delay: 0.7 }}
       >
@@ -144,7 +144,7 @@ function GymVisual({ est }: { est: string }) {
 
       {/* Flame bottom-left */}
       <motion.div
-        className="absolute bottom-[22%] left-[15%]"
+        className="absolute bottom-[22%] left-[15%] hidden sm:block"
         animate={{ y: [0, -6, 0], opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 4, repeat: Infinity, delay: 1.2 }}
       >
@@ -155,7 +155,7 @@ function GymVisual({ est }: { est: string }) {
 
       {/* Star bottom-right */}
       <motion.div
-        className="absolute bottom-[25%] right-[14%]"
+        className="absolute bottom-[25%] right-[14%] hidden sm:block"
         animate={{ y: [0, -8, 0], opacity: [0.2, 0.45, 0.2] }}
         transition={{ duration: 3.2, repeat: Infinity, delay: 0.4 }}
       >
@@ -164,11 +164,11 @@ function GymVisual({ est }: { est: string }) {
         </svg>
       </motion.div>
 
-      {/* Small animated dots */}
+      {/* Small animated dots — desktop only */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute h-1 w-1 rounded-full bg-primary/50 sm:h-1.5 sm:w-1.5"
+          className="absolute hidden rounded-full bg-primary/50 sm:block sm:h-1.5 sm:w-1.5"
           style={{
             left: `${25 + i * 13}%`,
             top: `${30 + (i % 3) * 18}%`,

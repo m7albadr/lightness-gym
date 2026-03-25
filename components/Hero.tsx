@@ -14,9 +14,9 @@ export default function Hero() {
       {/* Abstract background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark" />
-        <div className="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-primary/8 blur-[100px]" />
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[150px]" />
+        <div className="absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[60px] sm:h-96 sm:w-96 sm:blur-[120px]" />
+        <div className="absolute -right-32 bottom-1/4 h-52 w-52 rounded-full bg-primary/8 blur-[50px] sm:h-80 sm:w-80 sm:blur-[100px]" />
+        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[80px] sm:h-[500px] sm:w-[500px] sm:blur-[150px]" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -27,12 +27,12 @@ export default function Hero() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute right-[10%] top-[15%] h-40 w-40 rounded-full border border-primary/10 sm:h-64 sm:w-64"
+          className="absolute right-[10%] top-[15%] hidden rounded-full border border-primary/10 sm:block sm:h-64 sm:w-64"
         />
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute left-[5%] bottom-[20%] h-32 w-32 rounded-full border border-white/5 sm:h-48 sm:w-48"
+          className="absolute left-[5%] bottom-[20%] hidden rounded-full border border-white/5 sm:block sm:h-48 sm:w-48"
         />
         <div className="absolute right-[20%] bottom-[30%] h-2 w-2 rounded-full bg-primary/40" />
         <div className="absolute left-[15%] top-[30%] h-1.5 w-1.5 rounded-full bg-primary/30" />
@@ -83,7 +83,7 @@ export default function Hero() {
           <motion.a
             href="#pricing"
             whileTap={{ scale: 0.95 }}
-            className="w-full rounded-full bg-primary px-8 py-4 font-heading text-sm font-semibold tracking-wider text-dark transition-all animate-glow-pulse hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 sm:w-auto"
+            className="w-full rounded-full bg-primary px-8 py-4 font-heading text-sm font-semibold tracking-wider text-dark transition-all sm:animate-glow-pulse hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/25 sm:w-auto"
           >
             {tr.hero.cta1}
           </motion.a>

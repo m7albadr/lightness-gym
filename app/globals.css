@@ -51,38 +51,28 @@ h1, h2, h3, h4, h5, h6 {
   animation: glow-pulse 3s ease-in-out infinite;
 }
 
-/* ---- CONTINUOUS ANIMATIONS ---- */
-@keyframes border-breathe {
-  0%, 100% { border-color: rgba(201, 213, 90, 0.08); }
-  50% { border-color: rgba(201, 213, 90, 0.25); }
-}
-.mobile-card-breathe {
-  animation: border-breathe 3s ease-in-out infinite;
-}
-
+/* ---- CONTINUOUS ANIMATIONS (GPU-only: transform + opacity) ---- */
 @keyframes icon-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-3px); }
 }
 .mobile-icon-float {
-  animation: icon-float 2.5s ease-in-out infinite;
+  animation: icon-float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes dot-pulse {
   0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.6); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 1; }
 }
 .mobile-dot-pulse {
-  animation: dot-pulse 2s ease-in-out infinite;
+  animation: dot-pulse 2.5s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
-@keyframes shadow-pulse {
-  0%, 100% { box-shadow: 0 0 0 rgba(201, 213, 90, 0); }
-  50% { box-shadow: 0 4px 20px rgba(201, 213, 90, 0.08); }
-}
-.mobile-shadow-pulse {
-  animation: shadow-pulse 3s ease-in-out infinite;
-}
+/* border-breathe and shadow-pulse removed — too expensive on mobile */
+.mobile-card-breathe { /* no-op, class kept to avoid errors */ }
+.mobile-shadow-pulse { /* no-op */ }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -123,9 +113,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glass morphism card */
 .glass-card {
-  background: rgba(26, 26, 26, 0.6);
-  backdrop-filter: blur(12px);
+  background: rgba(26, 26, 26, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (min-width: 640px) {
+  .glass-card {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(12px);
+  }
 }
 
 /* ---- LIGHT MODE ---- */
