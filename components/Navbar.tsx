@@ -2,9 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { GazelleMark, LogoFull } from "@/components/Logo";
+import { LogoFull } from "@/components/Logo";
 import { useLang, useTheme } from "@/lib/context";
 import { t } from "@/lib/translations";
+
+function ScrollProgressBar() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  return (
+    <motion.div
+      className="fixed top-0 left-0 right-0 z-[60] h-[3px] origin-left bg-primary"
+      style={{ scaleX }}
+    />
+  );
+}
 
 const navKeys = ["about", "services", "classes", "pricing", "gallery", "contact"] as const;
 
@@ -22,16 +33,23 @@ export default function Navbar() {
   }));
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-      for (let i = navKeys.length - 1; i >= 0; i--) {
-        const el = document.getElementById(navKeys[i]);
-        if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(navKeys[i]);
-          return;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        for (let i = navKeys.length - 1; i >= 0; i--) {
+          const el = document.getElementById(navKeys[i]);
+          if (el && el.getBoundingClientRect().top <= 120) {
+            setActiveSection(navKeys[i]);
+            ticking = false;
+            return;
+          }
         }
-      }
-      setActiveSection("");
+        setActiveSection("");
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -46,6 +64,16 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const closeMobile = (href?: string) => {
     setMobileOpen(false);
     if (href) {
@@ -55,20 +83,14 @@ export default function Navbar() {
       }, 300);
     }
   };
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
     <>
-      {/* Scroll progress bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 z-[60] h-[3px] origin-left bg-primary"
-        style={{ scaleX }}
-      />
+      {isDesktop && <ScrollProgressBar />}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           scrolled
-            ? "bg-dark/95 backdrop-blur-md shadow-lg shadow-black/20"
+            ? "bg-dark/98 shadow-lg shadow-black/20 sm:bg-dark/95 sm:backdrop-blur-md"
             : "bg-transparent"
         }`}
       >

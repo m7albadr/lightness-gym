@@ -13,8 +13,10 @@
   --font-body: "Inter", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+/* scroll-behavior: smooth removed — causes jank on mobile.
+   Smooth scroll is handled via JS scrollIntoView({ behavior: "smooth" }) instead. */
+@media (min-width: 640px) {
+  html { scroll-behavior: smooth; }
 }
 
 html[lang="ar"] body,
