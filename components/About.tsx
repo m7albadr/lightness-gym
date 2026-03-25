@@ -240,7 +240,7 @@ export default function About() {
         <div className="mt-14 grid grid-cols-2 gap-3 sm:mt-20 sm:gap-6 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <FadeInWhenVisible key={i} delay={i * 0.1}>
-              <div className="glass-card rounded-2xl p-4 text-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 mobile-card-breathe mobile-shadow-pulse sm:p-6">
+              <div className="glass-card rounded-2xl p-4 text-center sm:p-6 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1">
                 <div className="font-heading text-3xl font-bold text-primary sm:text-5xl">
                   <CountUp target={stat.target} suffix={stat.suffix} />
                 </div>

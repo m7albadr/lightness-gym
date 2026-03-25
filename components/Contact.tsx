@@ -120,48 +120,47 @@ export default function Contact() {
           >
             <div className="space-y-3 sm:space-y-4">
               {contactData.map((item, idx) => (
-                <motion.a
+                <motion.div
                   key={item.labelKey}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="group flex items-start gap-3 rounded-xl border border-white/5 bg-dark-card p-4 transition-all duration-300 sm:gap-4 sm:p-5 sm:hover:border-primary/30"
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-10 sm:w-10">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[10px] font-medium tracking-wider text-text-muted sm:text-xs">
-                      {tr.contact[item.labelKey]}
+                  <a
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="group flex items-start gap-3 rounded-xl border border-white/5 bg-dark-card p-4 sm:gap-4 sm:p-5 sm:transition-colors sm:duration-300 sm:hover:border-primary/30"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-10 sm:w-10">
+                      {item.icon}
                     </div>
-                    <div className="mt-0.5 text-sm text-text-light transition-colors group-hover:text-primary sm:mt-1 sm:text-base">
-                      {item.valueKey ? tr.contact[item.valueKey] : item.value}
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-medium tracking-wider text-text-muted sm:text-xs">
+                        {tr.contact[item.labelKey]}
+                      </div>
+                      <div className="mt-0.5 text-sm text-text-light sm:mt-1 sm:text-base">
+                        {item.valueKey ? tr.contact[item.valueKey] : item.value}
+                      </div>
                     </div>
-                  </div>
-                </motion.a>
+                  </a>
+                </motion.div>
               ))}
             </div>
 
             <div className="mt-6 flex gap-3 sm:mt-8">
-              {socialLinks.map((link, idx) => (
-                <motion.a
+              {socialLinks.map((link) => (
+                <a
                   key={link.name}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: idx * 0.08 }}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-dark-card text-text-muted transition-all duration-300 sm:hover:border-primary/30 sm:hover:text-primary"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-dark-card text-text-muted sm:transition-colors sm:duration-300 sm:hover:border-primary/30 sm:hover:text-primary"
                   aria-label={link.name}
                 >
                   {link.icon}
-                </motion.a>
+                </a>
               ))}
             </div>
           </motion.div>

@@ -46,15 +46,13 @@ export default function Services() {
           {tr.services.items.map((service, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-dark-card p-6 transition-all duration-300 sm:p-8 sm:hover:border-primary/30 sm:hover:-translate-y-1"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
             >
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 transition-transform duration-500 group-hover:scale-150" />
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20 sm:h-14 sm:w-14">
+              <div className="group rounded-2xl border border-white/5 bg-dark-card p-6 sm:p-8 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary sm:h-14 sm:w-14">
                   {serviceIcons[i]}
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-semibold tracking-wide text-white sm:mt-6 sm:text-xl">

@@ -74,24 +74,20 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br ${gradients[i]} p-6 transition-all duration-300 sm:p-10 sm:hover:border-primary/20 sm:hover:-translate-y-1`}
+              transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
             >
-              <div className={`absolute -right-8 -top-8 h-24 w-24 rounded-full ${accents[i]} blur-2xl transition-transform duration-500 group-hover:scale-150`} />
               <div
-                className="absolute inset-0 opacity-[0.03]"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
-                  backgroundSize: "30px 30px",
-                }}
-              />
-              <div className="relative flex flex-col items-center text-center">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-primary sm:h-16 sm:w-16">
-                  {featureIcons[i]}
+                className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br ${gradients[i]} p-6 sm:p-10 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1`}
+              >
+                <div className={`pointer-events-none absolute -right-8 -top-8 hidden h-24 w-24 rounded-full ${accents[i]} blur-2xl sm:block`} />
+                <div className="flex flex-col items-center text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-primary sm:h-16 sm:w-16">
+                    {featureIcons[i]}
+                  </div>
+                  <h3 className="mt-4 font-heading text-sm font-semibold tracking-wider text-white sm:mt-6 sm:text-base">
+                    {title.toUpperCase()}
+                  </h3>
                 </div>
-                <h3 className="mt-4 font-heading text-sm font-semibold tracking-wider text-white sm:mt-6 sm:text-base">
-                  {title.toUpperCase()}
-                </h3>
               </div>
             </motion.div>
           ))}

@@ -78,34 +78,37 @@ export default function Pricing() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className={`group relative min-w-[200px] shrink-0 overflow-hidden rounded-2xl border p-5 transition-all duration-300 sm:min-w-0 sm:p-6 sm:hover:-translate-y-1 ${
-                      badge
-                        ? "border-primary/40 bg-gradient-to-b from-primary/10 to-dark-card"
-                        : "border-white/5 bg-dark-card hover:border-primary/30"
-                    }`}
+                    transition={{ duration: 0.4, delay: (i % 5) * 0.05 }}
                   >
-                    {badge && (
-                      <div className="absolute -right-8 top-4 rotate-45 bg-primary px-10 py-1 text-[10px] font-bold tracking-wider text-dark">
-                        {badge}
-                      </div>
-                    )}
-                    <h3 className="font-heading text-xs font-semibold tracking-wider text-text-muted sm:text-sm">
-                      {plan.name.toUpperCase()}
-                    </h3>
-                    <div className="mt-3 flex items-baseline gap-1 sm:mt-4">
-                      <span className="font-heading text-3xl font-bold text-white sm:text-4xl">
-                        {plan.price}
-                      </span>
-                      <span className="text-sm text-text-muted">KD</span>
-                    </div>
-                    <p className="mt-2 text-sm text-primary">{plan.detail}</p>
-                    <a
-                      href="#contact"
-                      className="mt-5 block rounded-full border border-primary/30 py-2.5 text-center font-heading text-xs font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-6 sm:hover:bg-primary sm:hover:text-dark"
+                    <div
+                      className={`group relative min-w-[200px] shrink-0 overflow-hidden rounded-2xl border p-5 sm:min-w-0 sm:p-6 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1 ${
+                        badge
+                          ? "border-primary/40 bg-gradient-to-b from-primary/10 to-dark-card"
+                          : "border-white/5 bg-dark-card"
+                      }`}
                     >
-                      {tr.pricing.getStarted}
-                    </a>
+                      {badge && (
+                        <div className="absolute -right-8 top-4 rotate-45 bg-primary px-10 py-1 text-[10px] font-bold tracking-wider text-dark">
+                          {badge}
+                        </div>
+                      )}
+                      <h3 className="font-heading text-xs font-semibold tracking-wider text-text-muted sm:text-sm">
+                        {plan.name.toUpperCase()}
+                      </h3>
+                      <div className="mt-3 flex items-baseline gap-1 sm:mt-4">
+                        <span className="font-heading text-3xl font-bold text-white sm:text-4xl">
+                          {plan.price}
+                        </span>
+                        <span className="text-sm text-text-muted">KD</span>
+                      </div>
+                      <p className="mt-2 text-sm text-primary">{plan.detail}</p>
+                      <a
+                        href="#contact"
+                        className="mt-5 block rounded-full border border-primary/30 py-2.5 text-center font-heading text-xs font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-6 sm:hover:bg-primary sm:hover:text-dark"
+                      >
+                        {tr.pricing.getStarted}
+                      </a>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -123,24 +126,25 @@ export default function Pricing() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="rounded-xl border border-white/5 bg-dark-card p-4 text-center transition-all duration-300 sm:p-5 sm:hover:border-primary/30 sm:hover:-translate-y-1"
+                    transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
                   >
-                    <div className="font-heading text-[10px] font-medium tracking-wider text-text-muted sm:text-sm">
-                      {pkg.sessions.toUpperCase()}
+                    <div className="rounded-xl border border-white/5 bg-dark-card p-4 text-center sm:p-5 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1">
+                      <div className="font-heading text-[10px] font-medium tracking-wider text-text-muted sm:text-sm">
+                        {pkg.sessions.toUpperCase()}
+                      </div>
+                      <div className="mt-2 flex items-baseline justify-center gap-1 sm:mt-3">
+                        <span className="font-heading text-2xl font-bold text-white sm:text-3xl">
+                          {pkg.price}
+                        </span>
+                        <span className="text-xs text-text-muted sm:text-sm">KD</span>
+                      </div>
+                      <a
+                        href="#contact"
+                        className="mt-3 block rounded-full border border-primary/30 py-2 text-center font-heading text-[10px] font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-4 sm:text-xs sm:hover:bg-primary sm:hover:text-dark"
+                      >
+                        {tr.pricing.joinNow}
+                      </a>
                     </div>
-                    <div className="mt-2 flex items-baseline justify-center gap-1 sm:mt-3">
-                      <span className="font-heading text-2xl font-bold text-white sm:text-3xl">
-                        {pkg.price}
-                      </span>
-                      <span className="text-xs text-text-muted sm:text-sm">KD</span>
-                    </div>
-                    <a
-                      href="#contact"
-                      className="mt-3 block rounded-full border border-primary/30 py-2 text-center font-heading text-[10px] font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-4 sm:text-xs sm:hover:bg-primary sm:hover:text-dark"
-                    >
-                      {tr.pricing.joinNow}
-                    </a>
                   </motion.div>
                 ))}
               </div>
@@ -162,32 +166,33 @@ export default function Pricing() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="rounded-2xl border border-white/5 bg-dark-card p-6 transition-all duration-300 sm:p-8 sm:hover:border-primary/30 sm:hover:-translate-y-1"
+                transition={{ duration: 0.4, delay: (i % 3) * 0.05 }}
               >
-                <h3 className="font-heading text-base font-semibold tracking-wider text-white sm:text-lg">
-                  {plan.name.toUpperCase()}
-                </h3>
-                <div className="mt-3 flex items-baseline gap-1 sm:mt-4">
-                  <span className="font-heading text-3xl font-bold text-white sm:text-4xl">
-                    {plan.price}
-                  </span>
-                  <span className="text-sm text-text-muted">KD</span>
-                </div>
-                {plan.subPrice && (
-                  <div className="mt-1 text-sm text-primary">
-                    {plan.subPrice}
+                <div className="rounded-2xl border border-white/5 bg-dark-card p-6 sm:p-8 sm:transition-transform sm:duration-300 sm:hover:-translate-y-1">
+                  <h3 className="font-heading text-base font-semibold tracking-wider text-white sm:text-lg">
+                    {plan.name.toUpperCase()}
+                  </h3>
+                  <div className="mt-3 flex items-baseline gap-1 sm:mt-4">
+                    <span className="font-heading text-3xl font-bold text-white sm:text-4xl">
+                      {plan.price}
+                    </span>
+                    <span className="text-sm text-text-muted">KD</span>
                   </div>
-                )}
-                <p className="mt-3 text-sm leading-relaxed text-text-muted sm:mt-4">
-                  {plan.detail}
-                </p>
-                <a
-                  href="#contact"
-                  className="mt-5 block rounded-full border border-primary/30 py-2.5 text-center font-heading text-xs font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-6 sm:hover:bg-primary sm:hover:text-dark"
-                >
-                  {tr.pricing.getStarted}
-                </a>
+                  {plan.subPrice && (
+                    <div className="mt-1 text-sm text-primary">
+                      {plan.subPrice}
+                    </div>
+                  )}
+                  <p className="mt-3 text-sm leading-relaxed text-text-muted sm:mt-4">
+                    {plan.detail}
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-5 block rounded-full border border-primary/30 py-2.5 text-center font-heading text-xs font-semibold tracking-wider text-primary transition-all active:bg-primary active:text-dark sm:mt-6 sm:hover:bg-primary sm:hover:text-dark"
+                  >
+                    {tr.pricing.getStarted}
+                  </a>
+                </div>
               </motion.div>
             ))}
           </motion.div>
