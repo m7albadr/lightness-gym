@@ -47,28 +47,37 @@ function FadeInWhenVisible({ children, delay = 0 }: { children: React.ReactNode;
 function GymVisual({ est }: { est: string }) {
   return (
     <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-dark-card to-dark">
-      {/* Gradient accents */}
-      <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-[80px]" />
-      <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-primary/5 blur-[60px]" />
+      {/* Gradient accents — hidden on mobile for performance */}
+      <div className="absolute -right-20 -top-20 hidden h-64 w-64 rounded-full bg-primary/10 blur-[80px] sm:block" />
+      <div className="absolute -bottom-10 -left-10 hidden h-40 w-40 rounded-full bg-primary/5 blur-[60px] sm:block" />
 
-      {/* Grid pattern */}
+      {/* Grid pattern — desktop only */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 hidden opacity-[0.04] sm:block"
         style={{
           backgroundImage: `linear-gradient(rgba(201,213,90,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(201,213,90,0.5) 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
         }}
       />
 
-      {/* Central animated dumbbell */}
+      {/* Central dumbbell — static on mobile, animated on desktop */}
       <div className="absolute inset-0 flex items-center justify-center">
+        <svg
+          viewBox="0 0 200 200"
+          className="h-[55%] w-auto sm:hidden"
+        >
+          <rect x="30" y="60" width="20" height="80" rx="4" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/40" />
+          <rect x="50" y="70" width="14" height="60" rx="3" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/30" />
+          <rect x="64" y="95" width="72" height="10" rx="5" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/50" />
+          <rect x="136" y="70" width="14" height="60" rx="3" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/30" />
+          <rect x="150" y="60" width="20" height="80" rx="4" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/40" />
+        </svg>
         <motion.svg
           viewBox="0 0 200 200"
-          className="h-[55%] w-auto"
+          className="hidden h-[55%] w-auto sm:block"
           animate={{ rotate: [0, 5, -5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          {/* Left weight plate outer */}
           <motion.rect
             x="30" y="60" width="20" height="80" rx="4"
             stroke="currentColor" strokeWidth="2" fill="none"
@@ -76,25 +85,9 @@ function GymVisual({ est }: { est: string }) {
             animate={{ opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 3, repeat: Infinity }}
           />
-          {/* Left weight plate inner */}
-          <rect
-            x="50" y="70" width="14" height="60" rx="3"
-            stroke="currentColor" strokeWidth="2" fill="none"
-            className="text-primary/30"
-          />
-          {/* Bar */}
-          <rect
-            x="64" y="95" width="72" height="10" rx="5"
-            stroke="currentColor" strokeWidth="2" fill="none"
-            className="text-primary/50"
-          />
-          {/* Right weight plate inner */}
-          <rect
-            x="136" y="70" width="14" height="60" rx="3"
-            stroke="currentColor" strokeWidth="2" fill="none"
-            className="text-primary/30"
-          />
-          {/* Right weight plate outer */}
+          <rect x="50" y="70" width="14" height="60" rx="3" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/30" />
+          <rect x="64" y="95" width="72" height="10" rx="5" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/50" />
+          <rect x="136" y="70" width="14" height="60" rx="3" stroke="currentColor" strokeWidth="2" fill="none" className="text-primary/30" />
           <motion.rect
             x="150" y="60" width="20" height="80" rx="4"
             stroke="currentColor" strokeWidth="2" fill="none"
@@ -186,7 +179,7 @@ function GymVisual({ est }: { est: string }) {
       ))}
 
       {/* EST badge */}
-      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-primary/20 bg-primary/10 p-3 backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:p-4">
+      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-primary/20 bg-primary/10 p-3 sm:bottom-6 sm:left-6 sm:right-6 sm:p-4 sm:backdrop-blur-md">
         <div className="text-center font-heading text-xs font-bold tracking-wider text-primary sm:text-sm">
           {est}
         </div>

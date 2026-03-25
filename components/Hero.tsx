@@ -14,11 +14,14 @@ export default function Hero() {
       {/* Abstract background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-lighter to-dark" />
-        <div className="absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[60px] sm:h-96 sm:w-96 sm:blur-[120px]" />
-        <div className="absolute -right-32 bottom-1/4 h-52 w-52 rounded-full bg-primary/8 blur-[50px] sm:h-80 sm:w-80 sm:blur-[100px]" />
-        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[80px] sm:h-[500px] sm:w-[500px] sm:blur-[150px]" />
+        {/* Blur orbs — hidden on mobile for performance, shown on sm+ */}
+        <div className="absolute -left-32 top-1/4 hidden rounded-full bg-primary/10 sm:block sm:h-96 sm:w-96 sm:blur-[120px]" />
+        <div className="absolute -right-32 bottom-1/4 hidden rounded-full bg-primary/8 sm:block sm:h-80 sm:w-80 sm:blur-[100px]" />
+        <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 sm:block sm:h-[500px] sm:w-[500px] sm:blur-[150px]" />
+        {/* Subtle mobile gradient replacement */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-primary/[0.02] sm:hidden" />
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 hidden opacity-[0.03] sm:block"
           style={{
             backgroundImage: `linear-gradient(rgba(201,213,90,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,213,90,0.3) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
@@ -34,14 +37,14 @@ export default function Hero() {
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           className="absolute left-[5%] bottom-[20%] hidden rounded-full border border-white/5 sm:block sm:h-48 sm:w-48"
         />
-        <div className="absolute right-[20%] bottom-[30%] h-2 w-2 rounded-full bg-primary/40" />
-        <div className="absolute left-[15%] top-[30%] h-1.5 w-1.5 rounded-full bg-primary/30" />
-        <div className="absolute right-[35%] top-[20%] h-1 w-1 rounded-full bg-white/20" />
+        <div className="absolute right-[20%] bottom-[30%] hidden h-2 w-2 rounded-full bg-primary/40 sm:block" />
+        <div className="absolute left-[15%] top-[30%] hidden h-1.5 w-1.5 rounded-full bg-primary/30 sm:block" />
+        <div className="absolute right-[35%] top-[20%] hidden h-1 w-1 rounded-full bg-white/20 sm:block" />
       </div>
 
-      {/* Faint gazelle watermark */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03]">
-        <GazelleMark className="h-[600px] w-auto text-white sm:h-[800px]" />
+      {/* Faint gazelle watermark — desktop only */}
+      <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 opacity-[0.03] sm:block">
+        <GazelleMark className="h-[800px] w-auto text-white" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 pb-24 pt-28 text-center sm:px-6 sm:py-32 lg:px-8">
@@ -90,7 +93,7 @@ export default function Hero() {
           <motion.a
             href="#classes"
             whileTap={{ scale: 0.95 }}
-            className="w-full rounded-full border border-white/20 px-8 py-4 font-heading text-sm font-semibold tracking-wider text-white transition-all mobile-card-breathe hover:border-primary hover:text-primary sm:w-auto"
+            className="w-full rounded-full border border-white/20 px-8 py-4 font-heading text-sm font-semibold tracking-wider text-white transition-colors hover:border-primary hover:text-primary sm:w-auto"
           >
             {tr.hero.cta2}
           </motion.a>
