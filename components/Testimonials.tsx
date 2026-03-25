@@ -45,7 +45,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.97 }}
+
               className="min-w-[280px] shrink-0 rounded-2xl border border-white/5 bg-dark-card p-5 sm:min-w-0 sm:p-6"
             >
               <Stars count={item.rating} />

@@ -51,7 +51,6 @@ export default function Services() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
               style={{ animationDelay: `${i * 0.5}s` }}
               className="group relative overflow-hidden rounded-2xl border border-white/5 bg-dark-card p-6 transition-all duration-500 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 mobile-card-breathe mobile-shadow-pulse sm:p-8"
             >

@@ -76,7 +76,7 @@ export default function Gallery() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -6, scale: 1.03, rotateX: 2, rotateY: -2 }}
-              whileTap={{ scale: 0.96 }}
+
               className={`group relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br ${gradients[i]} p-6 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10 mobile-card-breathe mobile-shadow-pulse sm:p-10`}
             >
               <div className={`absolute -right-8 -top-8 h-24 w-24 rounded-full ${accents[i]} blur-2xl transition-transform duration-500 group-hover:scale-150`} />

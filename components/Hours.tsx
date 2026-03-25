@@ -35,7 +35,7 @@ export default function Hours() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              whileTap={{ scale: 0.98 }}
+
               className="flex items-center justify-between border-b border-white/5 py-5 sm:py-6"
             >
               <div className="flex items-center gap-3">

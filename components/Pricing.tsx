@@ -80,7 +80,7 @@ export default function Pricing() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     whileHover={{ y: -4, scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+
                     className={`group relative min-w-[200px] shrink-0 overflow-hidden rounded-2xl border p-5 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 mobile-card-breathe mobile-shadow-pulse sm:min-w-0 sm:p-6 ${
                       badge
                         ? "border-primary/40 bg-gradient-to-b from-primary/10 to-dark-card"
@@ -127,7 +127,7 @@ export default function Pricing() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     whileHover={{ y: -3, scale: 1.02 }}
-                    whileTap={{ scale: 0.97 }}
+
                     className="rounded-xl border border-white/5 bg-dark-card p-4 text-center transition-all hover:border-primary/30 hover:shadow-md hover:shadow-primary/10 mobile-card-breathe sm:p-5"
                   >
                     <div className="font-heading text-[10px] font-medium tracking-wider text-text-muted sm:text-sm">

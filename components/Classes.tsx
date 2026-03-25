@@ -51,7 +51,7 @@ export default function Classes() {
                 onClick={() =>
                   setExpandedIndex(expandedIndex === i ? null : i)
                 }
-                className="group w-full rounded-xl border border-white/5 bg-dark-card p-4 text-left transition-all duration-300 active:border-primary/30 active:scale-[0.98] hover:shadow-md hover:shadow-primary/5 mobile-card-breathe sm:p-5 sm:hover:border-primary/30 sm:hover:-translate-y-1"
+                className="group w-full rounded-xl border border-white/5 bg-dark-card p-4 text-left transition-all duration-300 active:border-primary/30 hover:shadow-md hover:shadow-primary/5 mobile-card-breathe sm:p-5 sm:hover:border-primary/30 sm:hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
